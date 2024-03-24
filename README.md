@@ -1,5 +1,5 @@
 
-##Wymagania
+## Wymagania
 - python 3.9+
 - make
 
@@ -19,7 +19,7 @@ Jeśli chcesz sprawdzic jakośc kodu uzyj
 make test
 ```
 
-# Dlaczego README
+## Dlaczego README
 
 Readme jest ważne ponieważ użytkownik bierze z niego informacje
 - czym jest ten projekt
