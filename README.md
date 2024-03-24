@@ -9,12 +9,12 @@ Jeśli chcesz zanstalować użyj
 ```
 make install
 ```
-Jeśli chcesz uruchomić uzyj 
+Jeśli chcesz uruchomić użyj 
 ```
 make run
 ```
 
-Jeśli chcesz sprawdzic jakośc kodu uzyj 
+Jeśli chcesz sprawdzić jakość kodu użyj 
 ```
 make test
 ```
