@@ -1,0 +1,98 @@
+Zadanie 5.
+a)
+$ curl http://127.0.0.1:5000/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   159  100   159    0     0  39601      0 --:--:-- --:--:-- --:--:-- 53000<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskBlog</title>
+</head>
+<body>
+   <h1>Welcome to FlaskBlog</h1>
+</body>
+</html>
+
+b)
+$ curl http://127.0.0.1:5000/hello/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    74  100    74    0     0  17640      0 --:--:-- --:--:-- --:--:-- 18500<!doctype html>
+<title>Hello from Flask</title>
+
+  <h1>Hello, World!</h1>
+
+c)
+$ curl http://127.0.0.1:5000/hello/Pawel
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    73  100    73    0     0  20345      0 --:--:-- --:--:-- --:--:-- 24333<!doctype html>
+<title>Hello from Flask</title>
+
+  <h1>Hello Pawel!</h1>
+
+
+Zadanie 6.
+$ curl http://127.0.0.1:5000/hello/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    74  100    74    0     0  10706      0 --:--:-- --:--:-- --:--:-- 12333<!doctype html>
+<title>Hello from Flask</title>
+
+  <h1>Hello Paweł!</h1>
+
+
+Zadanie 7.
+
+$ pip install pylint
+Collecting pylint
+  Downloading pylint-3.1.0-py3-none-any.whl.metadata (12 kB)
+Collecting platformdirs>=2.2.0 (from pylint)
+  Downloading platformdirs-4.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting astroid<=3.2.0-dev0,>=3.1.0 (from pylint)
+  Downloading astroid-3.1.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting isort!=5.13.0,<6,>=4.2.5 (from pylint)
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting mccabe<0.8,>=0.6 (from pylint)
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting tomlkit>=0.10.1 (from pylint)
+  Downloading tomlkit-0.12.4-py3-none-any.whl.metadata (2.7 kB)
+Collecting dill>=0.3.6 (from pylint)
+  Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: colorama>=0.4.5 in c:\users\pawe▒\appdata\local\packages\pythonsoftwarefoundation.python.3.11_qbz5n2kfra8p0\localcache\local-packages\python311\site-packages (from pylint) (0.4.6)
+Downloading pylint-3.1.0-py3-none-any.whl (515 kB)
+   --------------------------------------- 515.6/515.6 kB 32.9 kB/s eta 0:00:00
+Downloading astroid-3.1.0-py3-none-any.whl (275 kB)
+   -------------------------------------- 275.6/275.6 kB 123.1 kB/s eta 0:00:00
+Downloading dill-0.3.8-py3-none-any.whl (116 kB)
+   -------------------------------------- 116.3/116.3 kB 205.4 kB/s eta 0:00:00
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+   ---------------------------------------- 92.3/92.3 kB 65.7 kB/s eta 0:00:00
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
+Downloading tomlkit-0.12.4-py3-none-any.whl (37 kB)
+Installing collected packages: tomlkit, platformdirs, mccabe, isort, dill, astroid, pylint
+  WARNING: The scripts isort-identify-imports.exe and isort.exe are installed in 'C:\Users\Pawe▒\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts pylint-config.exe, pylint.exe, pyreverse.exe and symilar.exe are installed in 'C:\Users\Pawe▒\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed astroid-3.1.0 dill-0.3.8 isort-5.13.2 mccabe-0.7.0 platformdirs-4.2.0 pylint-3.1.0 tomlkit-0.12.4
+
+Zadanie 8, 9.
+$ make test
+python -m pylint app.py
+************* Module app
+app.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+app.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
+app.py:13:0: C0116: Missing function or method docstring (missing-function-docstring)
+app.py:2:0: W0611: Unused escape imported from markupsafe (unused-import)
+
+-----------------------------------
+Your code has been rated at 4.29/10
+
+make: *** [Makefile:8: test] Error 20
+
+
+
+
