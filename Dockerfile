@@ -1,21 +1,22 @@
-# Użyj pełnego obrazu Pythona jako bazy, co może zawierać więcej narzędzi systemowych i bibliotek
-FROM python:3.9
+# Użyj pełniejszego obrazu Pythona
+FROM python:3.9-buster
 
-# Ustawienie katalogu roboczego w kontenerze
+# Ustaw katalog roboczy
 WORKDIR /app
 
-# Skopiuj plik z zależnościami do katalogu roboczego
-COPY requirements.txt /app/
+# Skopiuj plik z zależnościami
+COPY requirements.txt .
 
-# Aktualizacja pip, ograniczenie użycia pamięci cache i zwiększenie liczby dozwolonych wątków
-RUN pip install --upgrade pip && \
+# Instaluj zależności, zwiększając limity systemowe i ograniczając użycie pamięci cache
+RUN ulimit -u 4096 -n 4096 && \
+    pip install --upgrade pip && \
     pip install --no-cache-dir --no-parallel -r requirements.txt
 
-# Skopiuj pozostałe pliki aplikacji do kontenera
-COPY . /app/
+# Skopiuj wszystkie pozostałe pliki projektu
+COPY . .
 
-# Zadeklaruj port, na którym będzie działała aplikacja
+# Zadeklaruj port, na którym nasłuchuje aplikacja
 EXPOSE 5000
 
-# Polecenie uruchamiające aplikację
+# Uruchom aplikację
 CMD ["python", "app.py"]
