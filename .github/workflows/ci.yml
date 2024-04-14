@@ -1,0 +1,52 @@
+name: Python Flask CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Linting
+      run: |
+        python -m pylint app.py
+
+    - name: Start Application
+      run: |
+        python -m flask run &
+        
+    - name: Test Application
+      run: |
+        curl --fail http://localhost:5000/
+        curl --fail http://localhost:5000/hello/
+        curl --fail http://localhost:5000/hello/Paweł
+
+    - name: Build Docker Image
+      run: |
+        docker build -t flask-app .
+        docker run -d -p 5000:5000 --name flask-app flask-app
+        sleep 10 # daje czas na uruchomienie kontenera
+        curl --fail http://localhost:5000/
+        curl --fail http://localhost:5000/hello/
+        curl --fail http://localhost:5000/hello/Paweł
+
+    - name: Cleanup
+      if: always()
+      run: docker rm -f flask-app
