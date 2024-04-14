@@ -1,17 +1,19 @@
-# Użyj oficjalnego obrazu Pythona jako bazy
+# Użyj oficjalnego obrazu Pythona 3.9 jako bazy
 FROM python:3.9-slim
 
 # Ustawienie katalogu roboczego w kontenerze
 WORKDIR /app
 
 # Skopiuj plik z zależnościami do katalogu roboczego
-COPY requirements.txt .
+COPY requirements.txt /app/
 
-# Zainstaluj zależności
-RUN pip install -r requirements.txt
+# Zaktualizuj pip i zainstaluj zależności
+# Usunięcie cache i ograniczenie użycia równoległych wątków
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Skopiuj wszystkie pliki z bieżącego katalogu do katalogu roboczego
-COPY . .
+# Skopiuj pozostałe pliki aplikacji do kontenera
+COPY . /app/
 
 # Zadeklaruj port, na którym będzie działała aplikacja
 EXPOSE 5000
