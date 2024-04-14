@@ -4,7 +4,7 @@ services:
   - docker
 install:
   - pip install --upgrade pip
-  - pip install --no-threads -r requirements.txt
+  - pip install -r requirements.txt
 before_script:
   - pip --version
   - python --version
