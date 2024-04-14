@@ -23,10 +23,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pylint  
 
     - name: Run Linting
       run: |
-        python -m pylint app.py
+        pylint app.py
 
     - name: Start Application
       run: |
@@ -42,7 +43,7 @@ jobs:
       run: |
         docker build -t flask-app .
         docker run -d -p 5000:5000 --name flask-app flask-app
-        sleep 10 # daje czas na uruchomienie kontenera
+        sleep 10 
         curl --fail http://localhost:5000/
         curl --fail http://localhost:5000/hello/
         curl --fail http://localhost:5000/hello/Paweł
